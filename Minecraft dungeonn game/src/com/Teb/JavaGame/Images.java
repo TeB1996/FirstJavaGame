@@ -15,12 +15,22 @@ public class Images extends JPanel {
 	public Rectangle Zombie;
 	public Rectangle Platform;
 	public Rectangle Platform1;
+<<<<<<< HEAD
+=======
+	public Rectangle Platform2;
+	public Rectangle Platform3;
+	public Rectangle Platform4;
+>>>>>>> New changes
 	public Rectangle chest;
 	public Rectangle MenyPlatform;
 	public Rectangle Arrow1;
 	public Rectangle SpecialAttackRadius;
 
+<<<<<<< HEAD
 	public Rectangle[] solide = { Platform, Platform1, MenyPlatform };
+=======
+	public Rectangle[] solide = { Platform1, Platform2, Platform3, MenyPlatform };
+>>>>>>> New changes
 
 	public int playerheight = 40;
 	public int playerwidth = 20;
@@ -73,8 +83,16 @@ public class Images extends JPanel {
 
 	public Images() {
 		Player = new Rectangle(50, 50, playerwidth, playerheight);
+<<<<<<< HEAD
 		Platform = new Rectangle(0, 400, Main.width - 50, 10);
 		Platform1 = new Rectangle(200, 300, 200, 10);
+=======
+		Platform = new Rectangle(50, 200, Main.width - 50, 10);
+		Platform1 = new Rectangle(0, 300, Main.width - 50, 10);
+		Platform2 = new Rectangle(50, 400, Main.width - 50, 10);
+		Platform3 = new Rectangle(0, 500, Main.width - 50, 10);
+		Platform4 = new Rectangle(50, 600, Main.width - 50, 10);
+>>>>>>> New changes
 		chest = new Rectangle(chestSpawn, 200, 30, 30);
 		Zombie = new Rectangle(50, 50, playerwidth, playerheight);
 		MenyPlatform = new Rectangle(0, 555, 800, 10);
@@ -161,6 +179,7 @@ public class Images extends JPanel {
 				ZombieDead = false;
 			}
 			KL keylistener = new KL();
+<<<<<<< HEAD
 			Point p1 = new Point(Player.x + Player.width / 2, Player.y
 					+ Player.height);
 			Point p2 = new Point(Player.x + Player.width / 2, Player.y - 20);
@@ -168,26 +187,69 @@ public class Images extends JPanel {
 			Point c1 = new Point(chest.x, chest.y + chest.height);
 			Point c2 = new Point(chest.x + 10, chest.y);
 
+=======
+			Point p2 = new Point(Player.x + Player.width / 2, Player.y - 20);
+			Point c2 = new Point(chest.x + 10, chest.y);
+			Point[] hitbox = {
+					new Point(Player.x + Player.width / 2, Player.y
+							+ Player.height),
+					new Point(Zombie.x, Zombie.y + Zombie.height),
+					new Point(chest.x, chest.y + chest.height) };
+>>>>>>> New changes
 			// Background
 			g.drawImage(imageimport.background, 0, yOffset, Main.width,
 					Main.height * 4, null);
 
+<<<<<<< HEAD
 			if (Player.y == Main.height - 1) {
 				yOffset--;
 				Player.y++;
 				Platform.y--;
 				Platform1.y--;
+=======
+			if (Player.y >= Main.height) {
+				yOffset--;
+				Platform.y--;
+				Platform1.y--;
+				Platform2.y--;
+				Platform3.y--;
+				Platform4.y--;
+				Player.y--;
+				Zombie.y--;
+				chest.y--;
+>>>>>>> New changes
 			}
 
 			// System.out.println("Loading Images");
 			g.fillRect(Platform.x, Platform.y, Platform.width, Platform.height);
 			g.fillRect(Platform1.x, Platform1.y, Platform1.width,
 					Platform1.height);
+<<<<<<< HEAD
 			g.drawImage(imageimport.chest1, chest.x, chest.y, chest.width,
 					chest.height, null);
 			// Hitbox Player
 
 			// Bow
+=======
+			g.fillRect(Platform2.x, Platform2.y, Platform2.width,
+					Platform2.height);
+			g.fillRect(Platform3.x, Platform3.y, Platform3.width,
+					Platform3.height);
+			g.fillRect(Platform4.x, Platform4.y, Platform4.width,
+					Platform4.height);
+			g.drawImage(imageimport.chest1, chest.x, chest.y, chest.width,
+					chest.height, null);
+			// Hitbox Player
+			new Thread(new Thread() {
+				{
+					for (int counter = 0; counter < solide.length; counter++) {
+
+					}
+				}
+			});
+
+			// Useing items
+>>>>>>> New changes
 			if (KL.Use1 && TakenSlot1) {
 				sword = true;
 			} else
@@ -230,13 +292,18 @@ public class Images extends JPanel {
 				}
 			}
 			// Arrow
+<<<<<<< HEAD
 			Point A1 = new Point(Arrow1.x,Arrow1.y);
+=======
+			Point A1 = new Point(Arrow1.x, Arrow1.y);
+>>>>>>> New changes
 			if (Zombie.contains(A1)) {
 				ZombieLife += ArrowDamageValue;
 				Arrow1.x = 801;
 				KL.UseNumber = 400;
 			}
 			// Gravity
+<<<<<<< HEAD
 			if (!Platform.contains(p1) && keylistener.notjumping
 					&& !keylistener.jumping && !Platform1.contains(p1)) {
 				Player.y++;
@@ -251,6 +318,44 @@ public class Images extends JPanel {
 				Player.y++;
 			}
 			if (!Platform1.contains(c1) && !Platform.contains(c1)) {
+=======
+			if (!Platform.contains(hitbox[0]) && !Platform1.contains(hitbox[0])
+					&& !Platform2.contains(hitbox[0])
+					&& !Platform3.contains(hitbox[0])
+					&& !Platform4.contains(hitbox[0]) && keylistener.notjumping
+					&& !keylistener.jumping) {
+				Player.y++;
+				keylistener.onPlatform = false;
+			} else if (Platform.contains(hitbox[0])
+					|| Platform1.contains(hitbox[0])
+					|| Platform2.contains(hitbox[0])
+					|| Platform3.contains(hitbox[0])
+					|| Platform4.contains(hitbox[0])) {
+				keylistener.onPlatform = true;
+			}
+			if (!Platform.contains(hitbox[1]) && !Platform1.contains(hitbox[1])
+					&& !Platform2.contains(hitbox[1])
+					&& !Platform3.contains(hitbox[1])
+					&& !Platform4.contains(hitbox[1])) {
+				Zombie.y++;
+			} else if (Platform.contains(hitbox[0])
+					|| Platform2.contains(hitbox[0])
+					|| Platform4.contains(hitbox[0])) {
+				Zombie zombieclass= new Zombie();
+				zombieclass.left = true;
+
+			}else {
+				Zombie zombieclass= new Zombie();
+				zombieclass.right = true;
+			}
+			if (Platform2.contains(p2)) {
+				Player.y++;
+			}
+			if (!Platform.contains(hitbox[2]) && !Platform1.contains(hitbox[2])
+					&& !Platform2.contains(hitbox[2])
+					&& !Platform3.contains(hitbox[2])
+					&& !Platform4.contains(hitbox[2])) {
+>>>>>>> New changes
 				chest.y++;
 			}
 			// Lifes

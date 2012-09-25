@@ -12,6 +12,11 @@ public class Zombie {
 	
 	public static boolean ZombieAttack = true;
 	public static boolean zombieFollow = true;
+<<<<<<< HEAD
+=======
+	public static boolean right = false;
+	public static boolean left = false;
+>>>>>>> New changes
 	
 	public Zombie(){
 		if (Images.playery == Images.zombiey) {
@@ -52,6 +57,17 @@ public class Zombie {
 				}
 			}
 		} else if (Images.playery != Images.zombiey) {
+<<<<<<< HEAD
+=======
+			if (Images.playery >= Images.zombiey) {
+				if(left)
+				Images.Zombiex++;
+				left = false;
+				if(right)
+				Images.Zombiex--;
+				right = false;
+			}else
+>>>>>>> New changes
 			if (Images.zombiey < Images.playery + 60) {
 				if (zombieFollow) {
 					if (Images.playerx - 25 > Images.zombiex) {

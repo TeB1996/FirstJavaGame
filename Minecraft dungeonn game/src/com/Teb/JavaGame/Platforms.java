@@ -6,7 +6,11 @@ import java.awt.Rectangle;
 public class Platforms {
 
 	Images image = new Images();
+<<<<<<< HEAD
 	public Rectangle[] solide = { image.Platform, image.Platform1 };
+=======
+	public Rectangle[] solide = { image.Platform1, image.Platform2 };
+>>>>>>> New changes
 	Point p1 = new Point(image.Player.x, image.Player.y + image.Player.height);
 	Point p2 = new Point(image.Player.x, image.Player.y - 20);
 	Point z1 = new Point(image.Zombie.x,image. Zombie.y + image.Zombie.height);

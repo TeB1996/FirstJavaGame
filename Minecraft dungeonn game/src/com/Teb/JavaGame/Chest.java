@@ -6,7 +6,11 @@ public class Chest {
 
 	Random rand = new Random();
 	ImportImages imageimport = new ImportImages();
+<<<<<<< HEAD
 	int Randomobject = rand.nextInt(12);
+=======
+	int Randomobject = rand.nextInt(13);
+>>>>>>> New changes
 	public static String ChestObject = "UNSTORED";
 	public static String SPECIAL = "NONE";
 
