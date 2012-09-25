@@ -8,10 +8,11 @@ public class ZombieTimer implements ActionListener {
 	@SuppressWarnings("static-access")
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		Images image = new Images();
-		if (!image.zombiefollow) {
-			image.timer.stop();
-			image.zombieFollow = false;
+		Zombie zombie = new Zombie();
+		if (!zombie.zombieFollow) {
+			zombie.timer.stop();
+			System.out.println("ZombieTimer");
+			Zombie.zombieFollow = true;
 		}
 
 	}

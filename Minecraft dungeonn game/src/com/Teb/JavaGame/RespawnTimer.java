@@ -8,13 +8,11 @@ public class RespawnTimer implements ActionListener {
 	Images image = new Images();
 	KL keylistener = new KL();
 
-	@SuppressWarnings("static-access")
-	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(image.respawning == 6){
+		if (Images.respawning == 6) {
 			keylistener.timer1.stop();
 		}
-		image.respawning = image.respawning+1;
+		Images.respawning++;
 		System.out.println("Respawning");
 
 	}

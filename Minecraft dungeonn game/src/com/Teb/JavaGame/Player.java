@@ -26,7 +26,12 @@ public class Player {
 		}
 		if (keylistener.jumping) {
 			image.Playery = image.Playery- 2;
-			
+			image.JumpHeight++;
+			if(image.JumpHeight == 60){
+				keylistener.jumping = false;
+				keylistener.notjumping = true;
+				image.JumpHeight = 0;
+			}
 			
 		}
 		
